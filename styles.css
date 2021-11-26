@@ -1,6 +1,42 @@
+[data-tab-content] {
+    display: none;           /*make our tabs hidden*/
+}
+
+.active[data-tab-content] {
+    display: block;          /*make our tabs visible*/
+}
+
+.tabs {             /*select the tab class we made in index.html*/
+    display: flex;
+    justify-content: space-around;       /*helps us space our tabs across the screen, not an ugly top-down list*/
+    list-style: none;                    /*helps remove the dots in front of our tab names*/
+    margin: 0;                           /*remove margin and padding from tab titles*/
+    padding: 0;
+    border-bottom: 1px solid black;
+}
+
 body {
-    margin: 0;
-    background: pink;
+    margin: 0;                   /*removes margin and padding for our main page, this will push our tabs up to to the very top of the website*/
+    padding: 0;
+    background: skyblue;
     text-align: center;
     
+}
+
+.tab {                         /*styling for each tab*/
+    cursor: pointer;           /*when you hover over the tabs, they'll now have a cursor above them, letting the user know they're clickable tabs*/
+    padding: 10px;             /*we want some padding here to space the tabs out from each other, plus the tops/sides of the page*/
+}
+
+.tab.active {                  /*If our tab is active, we want it highlighted(note: we need some javascript for when we switch our active tabs)*/
+    background-color: #ccc;  /*slightly lighter color than #aaa*/
+}
+
+.tab:hover {                   /*styling for whenever we hover over a tab*/
+    background-color: #aaa;  /*dark grey color*/
+}
+
+.tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
 }
