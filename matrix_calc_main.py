@@ -1,7 +1,7 @@
-###!user/bin/python
+##!/usr/bin/env python3
 
 import numpy as np
-
+import cgi
 
 class Matrix:
     def __init__(self, rows, columns):
@@ -35,34 +35,40 @@ class Matrix:
             return 0
 
     def Transpose(self):
-        return self.A.transpose
+        return self.A.transpose()
 
     def Inverse(self):   #use inv method
         if ((self.rows == self.columns) and (self.A.get_determinant != 0)):
             return np.linagl.inv(self.A)
 
     def Add(self, B):           # B is another matrix
-        return self.A + B
+        return self.A + B.A
     
     def Multiply(self, B):      # B is another matrix
-        return self.A * B
+        return self.A * B.A
 
     def solve_system(self, b):          #solve the system Ax = b(must add safety checks)
         return np.linalg.solve(self.A, b)
 
     def random_generator(self, range):   # range is the range for the random number generator
-        return np.random.randint(range, size=(self.rows, self.columns))
+        self.A = np.random.randint(range, size=(self.rows, self.columns))
     
 
 
 
 def main():
-    rows = int(input("enter the # of rows for your matrix: "))
-    columns = int(input("enter the # of columns for your matrix: "))
+    #rows = int(input("enter the # of rows for your matrix: "))
+    #columns = int(input("enter the # of columns for your matrix: "))
+    formData = cgi.FieldStorage()
+    #print(formData)
+    rows = int(formData.getvalue('rows')) if 'rows' in formData else -1
+    columns = int(formData.getvalue('columns')) if 'columns' in formData else -1
+
     A = Matrix(rows, columns)
     #A.setArray()
-    A.random_generator(columns)
+    A.random_generator(10)
     print(str(A.A))
+    print(str(A.Transpose()))
 
 
 

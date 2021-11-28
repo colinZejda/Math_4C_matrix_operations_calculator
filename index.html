@@ -9,8 +9,16 @@
     <title>Tabs</title>
 </head>
 <body>
+    <FORM ACTION="/cgi-bin/matrix_calc_main.py" METHOD="POST">
+        <label for="rows">Rows:</label><br>
+        <input type="text" id="rows" name="rows" value="2"><br>
+        <label for="columns">Columns:</label><br>
+        <input type="text" id="columns" name="columns" value="2"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+      
     <ul class="tabs">
-        <li data-tab-target = "#Home" class="active tab">Home</li>
+        <li data-tab-target = "#Home"              class="active tab">Home</li>
         <li data-tab-target = "#Matrix Operations" class="tab">Matrix Operations</li>
     </ul>
 
@@ -23,8 +31,6 @@
             <h1>This is where the magic happens</h1>
             <h2>Feel free to use any of the matrix operations below:</h2>
         </div>
-        
     </div>
-    
 </body>
 </html>

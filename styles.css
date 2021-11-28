@@ -19,8 +19,6 @@ body {
     margin: 0;                   /*removes margin and padding for our main page, this will push our tabs up to to the very top of the website*/
     padding: 0;
     background: skyblue;
-    text-align: center;
-    
 }
 
 .tab {                         /*styling for each tab*/
